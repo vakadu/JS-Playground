@@ -1,11 +1,11 @@
 {
-    "name": "games",
-    "source": "color-game/index.html",
-    "scripts": {
-      "start": "parcel",
-      "build": "parcel build"
-    },
-    "devDependencies": {
-        "parcel": "latest"
-    }
+  "name": "interview",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "latest"
+  }
 }
