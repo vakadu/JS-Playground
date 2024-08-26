@@ -1,45 +1,4 @@
-function deepEqual(v1, v2) {
-	if (v1 === null || v2 === null) {
-		return v1 === v2;
-	}
-
-	//primitives
-	if (typeof v1 !== 'object' || typeof v2 !== 'object') {
-		return v1 === v2;
-	}
-
-	//arrays
-	if (Array.isArray(v1) && Array.isArray(v2)) {
-		if (v1.length !== v2.length) {
-			return false;
-		}
-
-		for (let i = 0; i < v1.length; i++) {
-			if (!deepEqual(v1[i], v2[i])) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	//objects
-	const valOnes = Object.keys(v1);
-	const valTwos = Object.keys(v2);
-	if (valOnes.length !== valTwos.length) {
-		return false;
-	}
-
-	for (let key in v1) {
-		let key1 = v1[key];
-		let key2 = v2[key];
-		if (!deepEqual(key1, key2)) {
-			return false;
-		}
-	}
-
-	return true;
-}
+function deepEqual(v1, v2) {}
 
 console.log(deepEqual(1, 1));
 console.log(deepEqual(1, 2));

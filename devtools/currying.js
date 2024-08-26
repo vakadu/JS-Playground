@@ -42,11 +42,23 @@ const filteringByName = (list, name) => {
 // console.log(filterByName(list, 'Liz'));
 // console.log(filteringByName(list, 'Liz'));
 
-const add = (a, b, c) => {};
+const add = (a, b, c, d, e) => {
+	return a + b + c + d + e;
+};
 
-const curry = () => {
-	return function () {};
+const curry = (fn) => {
+	return function curried(...args) {
+		if (args.length >= fn.length) {
+			return fn(...args);
+		} else {
+			return function (...nextArgs) {
+				return curried(...args, ...nextArgs);
+			};
+		}
+	};
 };
 
 const curriedAdd = curry(add);
-curriedAdd(1, 2, 3, 4, 5);
+console.log(curriedAdd(1, 2, 3, 4, 5));
+console.log(curriedAdd(1)(2, 3, 4, 5));
+console.log(curriedAdd(1)(2)(3, 4, 5));
