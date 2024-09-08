@@ -1,28 +1,27 @@
-import { throttle } from 'lodash';
-
 let normalCount = 0,
-	throttleCount = 0;
+  throttleCount = 0;
 
-const buttonId = document.getElementById('throttle');
-buttonId.addEventListener('click', () => {
-	normalCount++;
-	console.log(normalCount, 'normal');
+const buttonId = document.getElementById("throttle");
+buttonId.addEventListener("click", () => {
+  normalCount++;
+  console.log(normalCount, "normal");
 
-	// throttledCount();
+  throttledCount();
 });
 
 const throtle = (cb, delay) => {
-	let timer;
+  let lastCall = 0;
 
-	return function () {
-		if (timer) clearInterval(timer);
-		timer = setInterval(() => {
-			cb();
-		}, delay);
-	};
+  return function (...args) {
+    let now = new Date().getTime();
+    if (now - lastCall >= delay) {
+      cb(...args);
+      lastCall = now;
+    }
+  };
 };
 
 const throttledCount = throtle(() => {
-	throttleCount++;
-	console.log(throttleCount, 'throttle');
+  throttleCount++;
+  console.log(throttleCount, "throttle");
 }, 800);
