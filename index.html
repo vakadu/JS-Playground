@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>JS Playground</title>
-    <script type="module" src="devtools/bind.js"></script>
+    <script type="module" src="basics/sorting.js"></script>
   </head>
   <body>
     <h1>JS Playground</h1>
@@ -16,6 +16,24 @@
       <li>2</li>
       <li>3</li>
     </ul>
+
+    <div style="border: 1px solid; width: 300px; height: 300px" id="parent">
+      <p>parent</p>
+      <div
+        style="border: 1px solid; width: 200px; height: 200px"
+        id="child"
+        data-id="child"
+      >
+        <p>child</p>
+        <div
+          style="border: 1px solid; width: 100px; height: 100px"
+          id="grand-child"
+          data-id="grand-child"
+        >
+          <p>grand child</p>
+        </div>
+      </div>
+    </div>
 
     <button id="debounce">debounce</button>
     <button id="throttle">throttle</button>
