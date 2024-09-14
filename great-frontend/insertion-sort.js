@@ -1,13 +1,12 @@
 function insertion(arr) {
-  let i = 0,
-    j = arr.length - 1;
+  for (let i = 1; i < arr.length; i++) {
+    let j = i;
 
-  while (i <= j) {
-    if (arr[i] < arr[j]) {
+    while (j > 0 && arr[j - 1] > arr[j]) {
+      let temp = arr[j - 1];
+      arr[j - 1] = arr[j];
+      arr[j] = temp;
       j--;
-    } else {
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-      i++;
     }
   }
 
@@ -15,4 +14,4 @@ function insertion(arr) {
 }
 
 // console.log(insertion([9, 3, 6, 2, 1, 11]));
-console.log(insertion([12, 16, 14, 1, 2, 3]));
+console.log(insertion([4, 5, 6, 1, 2, 3]));

@@ -122,3 +122,54 @@ console.log(insertionSort([12, 16, 14, 1, 2, 3]));
 console.log(insertionSort([9, 3, 6, 2, 1, 11]));
 
 console.log("=============INSERTION SORT============================");
+
+//merge sort
+//divide and merge
+//divide the array into two halves, and keep on doing it till we reach to a single elem.
+//after we can do divide the elem anymore then we start merging them and sort.
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  let result = [],
+    leftIndex = 0,
+    rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  while (leftIndex < left.length) {
+    result.push(left[leftIndex]);
+    leftIndex++;
+  }
+
+  while (rightIndex < right.length) {
+    result.push(right[rightIndex]);
+    rightIndex++;
+  }
+
+  return result;
+
+  console.log(result);
+}
+
+console.log(mergeSort([12, 16, 14, 1, 2, 3]));
+// console.log(mergeSort([9, 3, 6, 2, 1, 11]));
+
+console.log("=============MERGE SORT============================");
