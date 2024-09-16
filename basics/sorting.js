@@ -173,3 +173,31 @@ console.log(mergeSort([12, 16, 14, 1, 2, 3]));
 // console.log(mergeSort([9, 3, 6, 2, 1, 11]));
 
 console.log("=============MERGE SORT============================");
+
+//qucik sort
+//pick up any elemnt and call it as a pivot
+//not place that in the correct position
+//[12, 16, 14, 1, 2, 3]
+//in this ex lets say i picked 12 as pivot
+//now lets go thru the array and say is 16 is greater than 12 lets put elems greater
+//than 12 on the right and lesser on the left
+//1,2,3,12,16, 14
+//now repeat the process since 12 is in th correct place
+//for left we pick 1 as pivot and for right 16 and continue the process
+
+function qucikSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let pivot = arr[0],
+    left = arr.filter((a) => a < pivot),
+    right = arr.filter((a) => a > pivot);
+
+  return [...qucikSort(left), pivot, ...qucikSort(right)];
+}
+
+console.log(qucikSort([12, 16, 14, 1, 2, 3]));
+console.log(qucikSort([9, 3, 6, 2, 1, 11]));
+
+console.log("=============QUCIK SORT============================");
