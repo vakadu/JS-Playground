@@ -56,18 +56,55 @@
 
 // console.log(x);
 
-var x = 10;
-a();
-b();
+// var x = 10;
+// a();
+// b();
 
-console.log(x);
+// console.log(x);
+
+// function a() {
+//   x = 100;
+//   console.log(x);
+// }
+
+// function b() {
+//   x = 200;
+//   console.log(x);
+// }
+
+// getData1();
+// getData2();
+
+// function getData1() {
+//   console.log("getData1");
+// }
+
+// var getData2 = function () {
+//   console.log("getData2");
+// };
+
+// let c = 0;
+
+// let id = setInterval(() => {
+//   console.log(c++);
+// }, 10);
+
+// setTimeout(() => {
+//   clearInterval(id);
+// }, 200);
 
 function a() {
-  x = 100;
-  console.log(x);
+  var a = 1;
+  function data() {
+    if (a) {
+      var a = 10;
+    }
+    console.log(a);
+  }
+  data();
 }
 
-function b() {
-  x = 200;
-  console.log(x);
-}
+let b = a;
+b();
+
+console.log(a);

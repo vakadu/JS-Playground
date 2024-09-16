@@ -45,6 +45,7 @@
 //shallow vs deep
 
 //shallow
+//here c is pointing to a in the same memory space, they are poinitng to same ref
 // let a = [1, 2, 3];
 // let b = [...a, 10];
 // let c = a;
@@ -94,3 +95,24 @@
 // console.log(u, v);
 
 // Object.freeze is also shallow copy
+
+// let c = { a: 10, b: 20 };
+// let d = { a: 10, b: 20 };
+
+// let e = { ...c, ...{ f: 30 } };
+// let g = { ...c, ...{ f: 40 } };
+
+// g.a = 100;
+
+// console.log(g, e);
+
+let a = [1, 2, 3, [100, 200, 300]];
+let b = [10, 20, 30, [10, 20, 30]];
+let c = [...a];
+a[3][0] = 111;
+
+console.log(a, c);
+
+// let e = c;
+
+// console.log(c === d, c === e);

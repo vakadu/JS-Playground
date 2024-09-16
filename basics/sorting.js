@@ -190,6 +190,11 @@ function qucikSort(arr) {
     return arr;
   }
 
+  //ascending order
+  //if we need desecind order
+  //left = arr.filter((a) => a > pivot),
+  //right = arr.filter((a) => a < pivot);
+
   let pivot = arr[0],
     left = arr.filter((a) => a < pivot),
     right = arr.filter((a) => a > pivot);
