@@ -1,17 +1,32 @@
-function cloneDeep(input) {
-	if (typeof input !== 'object' || input === null) {
-		return input;
+// function cloneDeep(input) {
+// 	if (typeof input !== 'object' || input === null) {
+// 		return input;
+// 	}
+
+// 	let output = Array.isArray(input) ? [] : {};
+
+// 	for (let key in input) {
+// 		if (input.hasOwnProperty(key)) {
+// 			output[key] = cloneDeep(input[key]);
+// 		}
+// 	}
+
+// 	return output;
+// }
+
+function cloneDeep(obj) {
+	if(typeof obj !== 'object') {
+		return obj
 	}
 
-	let output = Array.isArray(input) ? [] : {};
-
-	for (let key in input) {
-		if (input.hasOwnProperty(key)) {
-			output[key] = cloneDeep(input[key]);
+	let output = {};
+	for(let key in obj) {
+		if(key in obj) {
+			output[key] = cloneDeep(obj[key])
 		}
 	}
 
-	return output;
+	return output
 }
 
 var original = {

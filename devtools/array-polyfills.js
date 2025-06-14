@@ -79,3 +79,25 @@ console.log(
     13
   )
 );
+
+console.log("===================================");
+
+Array.prototype.myCustomFilter = function(callback) {
+  let result = [];
+  
+  for(let i=0; i<this.length; i++) {
+    if(callback(this[i])) {
+      result.push(this[i])
+    }
+  }
+
+  return result
+}
+
+const data = [1,2,3].myCustomFilter(function(i) {
+  return i>2  
+})
+
+console.log(data);
+
+
