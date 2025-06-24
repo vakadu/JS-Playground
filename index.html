@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>JS Playground</title>
-    <script type="module" src="practice/shallow-clone.js"></script>
+    <script type="module" src="practice/flat.js"></script>
   </head>
   <body>
     <h1>JS Playground</h1>
@@ -17,7 +17,7 @@
       <li>3</li>
     </ul>
 
-    <div style="border: 1px solid; width: 300px; height: 300px" id="parent">
+    <!-- <div style="border: 1px solid; width: 300px; height: 300px" id="parent">
       <p>parent</p>
       <div
         style="border: 1px solid; width: 200px; height: 200px"
@@ -33,9 +33,25 @@
           <p>grand child</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <button id="debounce">debounce</button>
     <button id="throttle">throttle</button>
+
+    <!-- <div id="parent" style="margin: 20px;">
+      <button id="child">Click Me</button>
+    </div> -->
+
+    <!-- <div id="grandparent">
+  <div id="parent">
+    <div id="child"></div>
+  </div>
+</div> -->
+
+    <div id="outer">
+      <div id="middle">
+        <div id="inner"></div>
+      </div>
+    </div>
   </body>
 </html>
