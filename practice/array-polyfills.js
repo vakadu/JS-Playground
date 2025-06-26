@@ -29,3 +29,18 @@ const data1 = [18,35,24].customFilter((item, i) => {
 console.log(data1);
 
 
+Array.prototype.customReduce = function(cb, initialValue) {
+    let acc = initialValue;
+    for (let index = 0; index < this.length; index++) {
+        const element = this[index];
+        acc = cb(acc, element, index)
+    }
+    return acc
+}
+
+const data2 = [18,35,24].customReduce((acc, curr, i) => {
+    return acc+=curr
+}, 0);
+console.log(data2, "data2");
+
+

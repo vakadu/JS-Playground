@@ -24,3 +24,19 @@ const promise3 = Promise.resolve(5);
 customPromiseAll([promise1, promise2, promise3])
   .then((values) => console.log(values)); // Output: [3, 4, 5]
 
+
+function race(promises) {
+    return new Promise((resolve) => {
+        for(let promise of promises) {
+            promise
+            .then((p) => {
+                resolve(p)
+            })
+            .catch((err) => reject(err));
+        }
+    })
+}
+
+const p1 = new Promise(resolve => setTimeout(resolve, 500, 'one'));
+const p2 = new Promise(resolve => setTimeout(resolve, 100, 'two'));
+race([p1, p2]).then(value => console.log(value)); // Output: 'two' (since p2 resolves first)
