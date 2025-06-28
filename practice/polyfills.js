@@ -1,42 +1,32 @@
-function customPromiseAll(promises) {
-    let result = [], done=0;    
-    return new Promise((resolve, reject) => {
-        for(let promise of promises) {
-            promise.then((p) => {
-                done++;
-                result.push(p);
-                
-                if(done === promises.length) {
-                    resolve(result)
-                }
-            })
-            .catch((err) => {
-                reject(err);
-            });
+String.prototype.customIncludes = function (target) {
+    for (let index = 0; index < this.length; index++) {
+        const tempSlice = this.slice(index, target.length+index);
+        if (tempSlice === target) {
+            return true;
         }
-    })
+    }
+    return false
 }
 
-const promise1 = Promise.resolve(3);
-const promise2 = Promise.resolve(4);
-const promise3 = Promise.resolve(5);
+// const str = 'Hello, world!';
+// console.log(str.customIncludes('world'));
+// console.log(str.customIncludes('foo'));
 
-customPromiseAll([promise1, promise2, promise3])
-  .then((values) => console.log(values)); // Output: [3, 4, 5]
+// str.customIncludes('foo')
+// console.log(customIncludes(str, 'world')); // Output: true
+// console.log(customIncludes(str, 'foo')); // Output: false
 
+Object.prototype.customKeys = function() {
+    let result = [];    
 
-function race(promises) {
-    return new Promise((resolve) => {
-        for(let promise of promises) {
-            promise
-            .then((p) => {
-                resolve(p)
-            })
-            .catch((err) => reject(err));
-        }
-    })
+    for (const key in this) {
+        if(this.hasOwnProperty(key))        
+        result.push(key)
+    }
+    
+    return result
 }
 
-const p1 = new Promise(resolve => setTimeout(resolve, 500, 'one'));
-const p2 = new Promise(resolve => setTimeout(resolve, 100, 'two'));
-race([p1, p2]).then(value => console.log(value)); // Output: 'two' (since p2 resolves first)
+const obj = { a: 1, b: 2, c: 3 };
+console.log(obj.customKeys()); // Output: ['a', 'b', 'c']
+
