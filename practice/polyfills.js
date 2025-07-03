@@ -81,6 +81,30 @@ Function.prototype.myBind = function(...args) {
 }
 
 const customBind = getDetails.myBind(person2,"nellore", "bind");
-console.log(customBind());
+// console.log(customBind());
 
+
+String.prototype.customTrim = function() {
+  let left=0,right=this.length-1;
+
+  while(left < right) {
+    if(this[left] === " " && this[right] === " ") {
+      left++;
+      right--;
+    }
+    else if(this[left] === " ") {
+      left++;
+    }
+    else if(this[right] === " ") {
+      right--;
+    } else {
+      break
+    }
+  }
+
+  return this.slice(left, right+1)
+}
+
+const str = "   Hello, world!   ".customTrim();
+console.log(str); // Output: "Hello, world!"
 

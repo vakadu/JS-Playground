@@ -139,6 +139,59 @@ Array.prototype.customSlice = function(start, end=this.length) {
     return result
 }
 
-const slicedArr = [1,2,3,4,6,7,8,9,4,5,6].customSlice(2,4);
-console.log(slicedArr);
+// const slicedArr = [1,2,3,4,6,7,8,9,4,5,6].customSlice(2,4);
+// console.log(slicedArr);
+
+Array.prototype.customConcat = function(...arr) {
+    let result = [...this];
+
+    for(let a of arr) {  
+        result = [...result, ...a]      
+    }
+
+    return result
+}
+
+const c1 = [1,2,3].customConcat([4, 5, 6], [7,8,9]);
+// console.log(c1);
+
+Array.prototype.customReverse = function() {
+    // let result = []
+    // for (let index = this.length-1; index >=0; index--) {
+    //     const element = this[index];
+    //     result.push(element)        
+    // }
+    // return result
+
+        let left = 0;
+    let right = this.length - 1;
+
+    while (left < right) {
+        // Swap elements
+        let temp = this[left];
+        this[left] = this[right];
+        this[right] = temp;
+
+        left++;
+        right--;
+    }
+
+    return this;
+}
+const r1 = [1,2,3].customReverse();
+// console.log(r1);
+
+
+Array.prototype.customIndexOf = function(match) {
+    for (let index = 0; index < this.length; index++) {
+        const element = this[index];
+        if(element === match) {
+            return index
+        }
+    }
+    return -1
+}
+
+const i1 = [1,2,3].customIndexOf(21);
+console.log(i1);
 
