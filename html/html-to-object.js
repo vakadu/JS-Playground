@@ -7,7 +7,7 @@ function htmlToObject(html) {
 function traverse(node) {
     if(node.nodeType === Node.TEXT_NODE) {
         return node.nodeValue;
-    }
+    }    
 
     const result = {
       type: node.nodeName.toLowerCase(),

@@ -4,7 +4,6 @@ function deepEqual(o1, o2) {
         return true
     }
 
-    debugger
     let keys1 = Object.keys(o1);
     let keys2 = Object.keys(o2);
 

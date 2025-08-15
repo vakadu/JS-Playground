@@ -22,8 +22,8 @@ function unFlatten(input) {
 
 const input = {
   'a.b.c': 42,
-//   'a.d': 99,
-//   'e': 'hello'
+  'a.d': 99,
+  'e': 'hello'
 };
 
 

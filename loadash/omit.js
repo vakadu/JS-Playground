@@ -24,9 +24,9 @@ function customOmit(o, p) {
   return result;
 }
 
-// const obj = { a: 1, b: 2, c: 3 };
-// console.log(customOmit(obj, ['a']));      // Output: { b: 2, c: 3 }
-// console.log(customOmit(obj, ["b", "c"])); // Output: { a: 1 }
+const obj = { a: 1, b: 2, c: 3 };
+console.log(customOmit(obj, ['a']));      // Output: { b: 2, c: 3 }
+console.log(customOmit(obj, ["b", "c"])); // Output: { a: 1 }
 
 // const obj = { a: 1, b: 2, c: 3 };
 // console.log(customOmit(obj, ['d']));      // Output: { a: 1, b: 2, c: 3 }
@@ -44,6 +44,6 @@ function customOmit(o, p) {
 // const obj = { a: { b: { c: 1 } }, b: { x: 10 }, c: 3 };
 // console.log(customOmit(obj, ['a.b.c', 'b'])); // Output: { a: { b: {} }, c: 3 }
 
-const obj = { a: [1, 2, 3], b: 2 };
-console.log(customOmit(obj, ['a[0]']));    // Output: { a: [2, 3], b: 2 }
-console.log(customOmit(obj, ['a[1]']));    // Output: { a: [1, 3], b: 2 }
+// const obj = { a: [1, 2, 3], b: 2 };
+// console.log(customOmit(obj, ['a[0]']));    // Output: { a: [2, 3], b: 2 }
+// console.log(customOmit(obj, ['a[1]']));    // Output: { a: [1, 3], b: 2 }
